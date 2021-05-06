@@ -1,0 +1,75 @@
+<mat-card class="my-3 example-card">
+   <mat-card-title class="card-title">Add User </mat-card-title>
+<mat-card-content class="mat-typography card-title">
+  <div class="row">
+    <div class="col-md-12">
+      <form class="register-form" [formGroup]="UserForm" (ngSubmit)="onSubmit(newUserpost)">
+        <div class="row mb-12">
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <mat-form-field class="w-100" appearance="outline">
+              <mat-label>First Name</mat-label>  
+               <input matInput  formControlName="firstname" required/> 
+               <mat-error *ngIf="UserForm.get('firstname').hasError('required') && !UserForm.get('firstname').pristine">First Name is required</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field class="w-100" appearance="outline">
+              <mat-label>Last Name</mat-label>
+              <input matInput formControlName="lastname" required/>
+              <mat-error *ngIf="UserForm.get('lastname').hasError('required') && !UserForm.get('lastname').pristine">Last Name is required </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <mat-form-field class="w-100" appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput type="email" formControlName="email" required />
+              <mat-error *ngIf="UserForm.get('email').hasError('required') && !UserForm.get('email').pristine">Invalid email</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6" >
+            <mat-form-field class="w-100" appearance="outline">
+              <mat-label>Phone Number*</mat-label> 
+            <ngx-mat-intl-tel-input
+              [preferredCountries]="['us', 'gb']"
+              [enablePlaceholder]="true"
+              [enableSearch]="true"
+              [required]
+              name="phone"
+              formControlName="phone"></ngx-mat-intl-tel-input>
+            <mat-error *ngIf="UserForm.get('phone').hasError('required') && !UserForm.get('phone').pristine" >Phone Number is not valid</mat-error>
+          </mat-form-field>        
+          </div>
+        </div>
+          <div class="row">
+          <div class="col-md-12 ">
+            <mat-form-field class="w-100" appearance="outline">
+              <mat-label><span matPrefix> $ &nbsp;</span>Monthly Advertising Budget</mat-label> 
+              <input matInput type="number" formControlName="budget" required>
+              <mat-error *ngIf="UserForm.get('budget').hasError('required') && !UserForm.get('budget').pristine">Budget is required</mat-error>
+            </mat-form-field>
+         </div>
+        </div> 
+        <div class="row mb-12">
+        </div> 
+        <br/>    
+        <div class="row">
+          <div class="col-md-6">
+            <button mat-raised-button mat-button (click)="Back()">
+             Back
+             </button>
+          </div>
+          <div class="col-md-6">
+            <button [disabled]="!UserForm.valid" mat-raised-button mat-button color="accent">
+             Save
+             </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</mat-card-content>
+</mat-card>

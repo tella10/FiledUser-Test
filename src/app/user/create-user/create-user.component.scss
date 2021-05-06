@@ -1,0 +1,33 @@
+.example-card {
+    max-width: fit-content;
+    align-content: center;
+    margin: 50px 100px 100px 500px;
+  }
+
+.card-title{
+    text-align: center;
+   
+}
+
+.example-right-align {
+    text-align: right;
+    font-size: 12px;
+  }
+  
+input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+input.example-right-align {
+    -moz-appearance: textfield;
+  }
+
+.ngx-intl-tel-input{
+	box-shadow: none;
+	font-size: 20px;
+	margin-left: 0;
+	width: 12px;
+	max-height: 40px;
+    height: calc(1.5em + .75rem + 12px);
+}
